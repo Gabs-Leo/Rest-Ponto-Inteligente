@@ -17,7 +17,6 @@ import javax.persistence.PreUpdate;
 @Entity
 public class Empresa implements Serializable{
 	private static final long serialVersionUID = 5152824005164726712L;
-	
 
 	private Long id;
 	private String razaoSocial;
