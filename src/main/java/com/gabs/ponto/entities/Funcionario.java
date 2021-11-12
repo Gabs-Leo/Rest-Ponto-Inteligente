@@ -26,6 +26,8 @@ import com.gabs.ponto.domain.PerfilType;
 public class Funcionario implements Serializable{
 	private static final long serialVersionUID = 6892625135331857061L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nome;
 	private String email;
@@ -61,8 +63,7 @@ public class Funcionario implements Serializable{
 		this.lancamentos = lancamentos;
 	}
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	public Long getId() {
 		return id;
 	}
