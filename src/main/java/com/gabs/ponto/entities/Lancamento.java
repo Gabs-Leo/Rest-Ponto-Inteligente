@@ -22,6 +22,8 @@ import com.gabs.ponto.enums.LancamentoType;
 public class Lancamento implements Serializable{
 	private static final long serialVersionUID = 7650431947708287301L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private Date data;
 	private String descricao;
@@ -29,6 +31,8 @@ public class Lancamento implements Serializable{
 	private Date dataCriacao;
 	private Date dataAtualizacao;
 	private LancamentoType tipo;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Funcionario funcionario;
 	
 	public Lancamento() {}
@@ -46,8 +50,6 @@ public class Lancamento implements Serializable{
 		this.funcionario = funcionario;
 	}
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -105,8 +107,7 @@ public class Lancamento implements Serializable{
 	public void setTipo(LancamentoType tipo) {
 		this.tipo = tipo;
 	}
-
-	@ManyToOne(fetch = FetchType.EAGER)
+	
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}

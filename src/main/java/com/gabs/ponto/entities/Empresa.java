@@ -17,12 +17,16 @@ import javax.persistence.PreUpdate;
 @Entity
 public class Empresa implements Serializable{
 	private static final long serialVersionUID = 5152824005164726712L;
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String razaoSocial;
 	private String cnpj;
 	private Date dataCriacao;
 	private Date dataAtualizacao;
+	
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Funcionario> funcionarios;
 	
 	public Empresa() {}
@@ -38,8 +42,7 @@ public class Empresa implements Serializable{
 		this.funcionarios = funcionarios;
 	}
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	public Long getId() {
 		return id;
 	}
@@ -80,7 +83,7 @@ public class Empresa implements Serializable{
 		this.dataAtualizacao = dataAtualizacao;
 	}
 	
-	@OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}

@@ -14,6 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -39,7 +41,15 @@ public class Funcionario implements Serializable{
 	private PerfilType perfil;
 	private Date dataCriacao;
 	private Date dataAtualizacao;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Empresa empresa;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="funcionario_lancamentos",
+		joinColumns=@JoinColumn(name="funcionario_id", referencedColumnName = "id"),
+		inverseJoinColumns=@JoinColumn(name="lancamento_id", referencedColumnName = "id")
+	)
 	private List<Lancamento> lancamentos;
 	
 	public Funcionario() {}
@@ -153,7 +163,6 @@ public class Funcionario implements Serializable{
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
 	public Empresa getEmpresa() {
 		return empresa;
 	}
@@ -162,7 +171,7 @@ public class Funcionario implements Serializable{
 		this.empresa = empresa;
 	}
 	
-	@OneToMany(mappedBy = "funcionario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	
 	public List<Lancamento> getLancamentos() {
 		return lancamentos;
 	}
