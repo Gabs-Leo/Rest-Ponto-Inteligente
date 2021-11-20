@@ -16,7 +16,7 @@ public class FuncionarioServiceImpl implements FuncionarioService{
 	
 	@Override
 	public Funcionario salvarFuncionario(Funcionario funcionario) {
-		return salvarFuncionario(funcionario);
+		return funcionarioRepos.save(funcionario);
 	}
 
 	@Override
