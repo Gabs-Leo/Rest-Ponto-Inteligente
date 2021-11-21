@@ -1,14 +1,14 @@
 package com.gabs.ponto.response;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Response<T> {
 	private T data;
-	private List<String> erros;
+	private ArrayList<String> erros = new ArrayList<String>();
 	
 	public Response() {}
 
-	public Response(T data, List<String> erros) {
+	public Response(T data, ArrayList<String> erros) {
 		super();
 		this.data = data;
 		this.erros = erros;
@@ -22,11 +22,11 @@ public class Response<T> {
 		this.data = data;
 	}
 
-	public List<String> getErros() {
+	public ArrayList<String> getErros() {
 		return erros;
 	}
 
-	public void setErros(List<String> erros) {
+	public void setErros(ArrayList<String> erros) {
 		this.erros = erros;
 	}
 }

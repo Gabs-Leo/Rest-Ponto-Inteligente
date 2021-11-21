@@ -192,6 +192,11 @@ public class Funcionario implements Serializable{
 	}
 	
 	@Transient
+	public Optional<Float> getQtdHorasAlmocoOpt(){
+		return Optional.ofNullable(qtdHorasAlmoco);
+	}
+	
+	@Transient
 	public Optional<BigDecimal> getValorHoraOpt(){
 		return Optional.ofNullable(valorHora);
 	}

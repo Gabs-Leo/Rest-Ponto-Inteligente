@@ -1,5 +1,6 @@
 package com.gabs.ponto.dtos;
 
+
 import java.util.Optional;
 
 import javax.validation.constraints.Email;
@@ -17,7 +18,7 @@ public class CadastroPessoaFisicaDto {
 			qtdHorasAlmoco = Optional.empty();
 	
 	public CadastroPessoaFisicaDto() {}
-	
+
 	public CadastroPessoaFisicaDto(Long id, String nome, String email, String senha, String cpf, String cnpj,
 			Optional<String> valorHora, Optional<String> qtdHorasTrabalhoDia, Optional<String> qtdHorasAlmoco) {
 		super();
@@ -74,27 +75,9 @@ public class CadastroPessoaFisicaDto {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Optional<String> getValorHora() {
-		return valorHora;
-	}
-	public void setValorHora(Optional<String> valorHora) {
-		this.valorHora = valorHora;
-	}
-	public Optional<String> getQtdHorasTrabalhoDia() {
-		return qtdHorasTrabalhoDia;
-	}
-	public void setQtdHorasTrabalhoDia(Optional<String> qtdHorasTrabalhoDia) {
-		this.qtdHorasTrabalhoDia = qtdHorasTrabalhoDia;
-	}
-	public Optional<String> getQtdHorasAlmoco() {
-		return qtdHorasAlmoco;
-	}
-	public void setQtdHorasAlmoco(Optional<String> qtdHorasAlmoco) {
-		this.qtdHorasAlmoco = qtdHorasAlmoco;
-	}
 
 	@NotEmpty(message = "Cnpj não pode ser vazio!")
-	@CNPJ(message = "Cnpj inválido!")
+	@CNPJ(message = "Cnpj inválido!") 										         
 	public String getCnpj() {
 		return cnpj;
 	}
@@ -102,6 +85,29 @@ public class CadastroPessoaFisicaDto {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-	
+
+	public Optional<String> getValorHora() {
+		return valorHora;
+	}
+
+	public void setValorHora(Optional<String> valorHora) {
+		this.valorHora = valorHora;
+	}
+
+	public Optional<String> getQtdHorasTrabalhoDia() {
+		return qtdHorasTrabalhoDia;
+	}
+
+	public void setQtdHorasTrabalhoDia(Optional<String> qtdHorasTrabalhoDia) {
+		this.qtdHorasTrabalhoDia = qtdHorasTrabalhoDia;
+	}
+
+	public Optional<String> getQtdHorasAlmoco() {
+		return qtdHorasAlmoco;
+	}
+
+	public void setQtdHorasAlmoco(Optional<String> qtdHorasAlmoco) {
+		this.qtdHorasAlmoco = qtdHorasAlmoco;
+	}
 	
 }
